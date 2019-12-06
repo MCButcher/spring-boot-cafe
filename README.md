@@ -53,3 +53,7 @@ Generate and download zip file to your local filesystem and unzip the project to
         version:    "0.1.0-SNAPSHOT"
         group:      "de.cegeka"
 ```
+
+### Next Stage
+[stage-01](https://github.com/ns-cegeka/spring-boot-cafe/tree/stage-01)
+
