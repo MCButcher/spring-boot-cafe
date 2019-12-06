@@ -5,19 +5,16 @@
 ### Specifications
 Implement the entities for a menu.  
 
-```mermaid
-classDiagram
-      Menu <|-- Category
-      class Menu {
-          - id : Long
-          - item _ String
-          - price : Double
-          - category : Category
-      }
-      class Category {
-          - id : Long
-          - name : String
-      }
+```
+    class Category
+        - id : Long
+        - name : String
+        
+    class Menu
+        - id : Long
+        - item _ String
+        - price : Double
+        - category : Category
 ```
 
 ### Tasks
