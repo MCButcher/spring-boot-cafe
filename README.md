@@ -4,9 +4,9 @@
 
 ### Requirements
 - Java 11
-- Maven (https://maven.apache.org)
 - IDE with lombok support (https://projectlombok.org)
 - Browser and Postman (https://www.getpostman.com) for accessing REST endpoints
+- Maven [optional] (https://maven.apache.org)
 
 ### Setup
 First we will setup a new Spring Boot project with the Spring Initialzr(https://start.spring.io/).  
@@ -27,6 +27,7 @@ Generate and download zip file to your local filesystem and unzip the project to
 
 ### Tasks
 - Import project into IDE
+- Delete *mvn*.** files, if you have maven already installed on your workstation
 - Rename *SpringbootcafeApplication.java* to *RunApplication.java* and the appropriate test class
 - Change version to **0.1.0-SNAPSHOT**
 - Add build information for the Actuator endpoint */actuatior/info*
