@@ -27,3 +27,6 @@ A suitable implementation for **Category** is already done.
 
 ### Goals
 - Service Endpoints are available and return a 200 and a response body
+
+### Next Stage
+[stage-02](https://github.com/ns-cegeka/spring-boot-cafe/tree/stage-02)
