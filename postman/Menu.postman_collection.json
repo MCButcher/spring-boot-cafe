@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "75853220-f922-4e5d-b6ea-2099c438c2fb",
-		"name": "category",
+		"_postman_id": "0cdefba8-fe03-47f0-a626-13734337db88",
+		"name": "Menu",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "/category",
+			"name": "/menu",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -18,38 +18,38 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/category",
+					"raw": "{{url}}/api/menu",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
-						"category"
+						"menu"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/category/{id}",
+			"name": "/menu/{id}",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"value": "application/json"
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/category/1",
+					"raw": "{{url}}/api/menu/1",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
-						"category",
+						"menu",
 						"1"
 					]
 				}
@@ -57,7 +57,45 @@
 			"response": []
 		},
 		{
-			"name": "/category",
+			"name": "/menu/category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"name\": \"Food\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/menu/category",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"menu",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/menu",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -70,7 +108,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Drinks\"\n}\n",
+					"raw": "{\n    \"item\": \"Sparkling Water\",\n    \"price\": 1.5,\n    \"category\": {\n        \"id\": 1,\n        \"name\": \"Drinks\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -78,20 +116,20 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/api/category",
+					"raw": "{{url}}/api/menu",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
-						"category"
+						"menu"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/category/[id}",
+			"name": "/menu/[id}",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -104,7 +142,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\": 1,\n\t\"name\": \"Food\"\n}\n",
+					"raw": "{\n    \"id\": 2,\n    \"item\": \"Sparkling Water\",\n    \"price\": 1.5,\n    \"category\": {\n        \"id\": 1,\n        \"name\": \"Drinks\"\n    }\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -112,13 +150,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/api/category/1",
+					"raw": "{{url}}/api/menu/1",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
-						"category",
+						"menu",
 						"1"
 					]
 				}
@@ -126,7 +164,7 @@
 			"response": []
 		},
 		{
-			"name": "/category/[id}",
+			"name": "/menu/[id}",
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -139,7 +177,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\": 1,\n\t\"name\": \"Food\"\n}\n",
+					"raw": "{\n    \"id\": 1,\n    \"item\": \"Sparkling Water\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -147,18 +185,40 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/api/category/1",
+					"raw": "{{url}}/api/menu/1",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
-						"category",
+						"menu",
 						"1"
 					]
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "66a8a6b3-14e8-490d-94cf-16fd8ab92362",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2c494442-0aeb-44cd-bf12-3789acfcdeec",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}
