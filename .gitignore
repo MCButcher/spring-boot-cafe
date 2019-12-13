@@ -27,3 +27,4 @@ hs_err_pid*
 .project
 .factorypath
 .vscode
+.sts4-cache
