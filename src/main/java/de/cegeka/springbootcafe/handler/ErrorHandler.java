@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import de.cegeka.springbootcafe.exceptions.UnknownCategoryException;
 import de.cegeka.springbootcafe.models.ApiError;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,4 +20,11 @@ public class ErrorHandler {
         log.error(exception.getMessage(), exception);
         return new ResponseEntity<ApiError>(new ApiError(HttpStatus.NOT_ACCEPTABLE, LocalDateTime.now(), exception.getMessage()), HttpStatus.NOT_ACCEPTABLE);
     }
+
+    @ExceptionHandler(UnknownCategoryException.class)
+    public ResponseEntity<ApiError> handleUnknownCategoryException(UnknownCategoryException exception) {
+        log.error(exception.getMessage(), exception);
+        return new ResponseEntity<ApiError>(new ApiError(HttpStatus.UNPROCESSABLE_ENTITY, LocalDateTime.now(), exception.getMessage()), HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
 }

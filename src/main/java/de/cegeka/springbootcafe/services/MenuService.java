@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import de.cegeka.springbootcafe.exceptions.UnknownCategoryException;
 import de.cegeka.springbootcafe.models.Category;
 import de.cegeka.springbootcafe.models.Menu;
 
@@ -32,6 +34,9 @@ public class MenuService {
    }
 
    public List<Menu> getByCategory (Category category) {
+      if (category == null || StringUtils.isEmpty(category.getName())) {
+         throw new UnknownCategoryException("category is null");
+      }
       return Arrays.asList(Menu.builder().id(1L).item("Sparkling Water").price(1.50).category(category).build());
    }
 }
