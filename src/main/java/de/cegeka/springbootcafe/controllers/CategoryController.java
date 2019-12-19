@@ -24,27 +24,27 @@ public class CategoryController {
    private CategoryService categoryService;
 
    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-   public Category add (@RequestBody Category category) {
-      return categoryService.add(category);
+   public Category add(@RequestBody Category category) {
+      return categoryService.insertOrUpdate(category);
    }
 
    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-   public Category update (@PathVariable("id") Long id, @RequestBody Category category) {
-      return categoryService.update(category);
+   public Category update(@PathVariable("id") Long id, @RequestBody Category category) {
+      return categoryService.insertOrUpdate(category);
    }
 
    @DeleteMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-   public Category delete (@PathVariable("id") Long id, @RequestBody Category category) {
+   public Category delete(@PathVariable("id") Long id, @RequestBody Category category) {
       return categoryService.delete(category);
    }
 
    @GetMapping("/{id}")
-   public Category getById (@PathVariable("id") Long id) {
+   public Category getById(@PathVariable("id") Long id) {
       return categoryService.getById(id);
    }
 
    @GetMapping
-   public List<Category> getAll () {
+   public List<Category> getAll() {
       return categoryService.getAll();
    }
 }
