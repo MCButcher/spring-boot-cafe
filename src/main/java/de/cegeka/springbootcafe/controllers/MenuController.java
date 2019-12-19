@@ -21,36 +21,36 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/menu")
 @AllArgsConstructor
 public class MenuController {
-    private MenuService menuService;
+   private MenuService menuService;
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Menu add (@RequestBody Menu menu) {
-       return menuService.add(menu);
-    }
- 
-    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Menu update (@PathVariable("id") Long id, @RequestBody Menu menu) {
-       return menuService.update(menu);
-    }
- 
-    @DeleteMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Menu delete (@PathVariable("id") Long id, @RequestBody Menu menu) {
-       return menuService.delete(menu);
-    }
- 
-    @GetMapping("/{id}")
-    public Menu getById (@PathVariable("id") Long id) {
-       return menuService.getById(id);
-    }
- 
-    @GetMapping
-    public List<Menu> getAll () {
-       return menuService.getAll();
-    }
+   @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+   public Menu add(@RequestBody Menu menu) {
+      return menuService.insertOrUpdate(menu);
+   }
 
-    @GetMapping("/category")
-    public List<Menu> getByCategory (@RequestBody Category category) {
-       return menuService.getByCategory(category);
-    }
+   @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+   public Menu update(@PathVariable("id") Long id, @RequestBody Menu menu) {
+      return menuService.insertOrUpdate(menu);
+   }
+
+   @DeleteMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+   public Menu delete(@PathVariable("id") Long id, @RequestBody Menu menu) {
+      return menuService.delete(menu);
+   }
+
+   @GetMapping("/{id}")
+   public Menu getById(@PathVariable("id") Long id) {
+      return menuService.getById(id);
+   }
+
+   @GetMapping
+   public List<Menu> getAll() {
+      return menuService.getAll();
+   }
+
+   @GetMapping("/category")
+   public List<Menu> getByCategory(@RequestBody Category category) {
+      return menuService.getByCategory(category);
+   }
 
 }
