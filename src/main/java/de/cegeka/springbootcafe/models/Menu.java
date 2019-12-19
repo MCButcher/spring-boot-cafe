@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
@@ -25,11 +26,13 @@ public class Menu {
    private Long id;
 
    @Length(max = 100)
+   @NotNull
    private String item;
 
    @Positive
    private Double price;
 
    @OneToOne
+   @NotNull
    private Category category;
 }
