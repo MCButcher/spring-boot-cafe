@@ -37,10 +37,9 @@ public class ErrorHandler {
   public ResponseEntity<ApiError> handleConstraintViolationException(ConstraintViolationException exception) {
     log.error(exception.getMessage(), exception);
     StringBuffer messages = new StringBuffer();
-    exception.getConstraintViolations().forEach(
-        vialoation -> messages.append(vialoation.getPropertyPath()).append(" ").append(vialoation.getMessage()));
+    exception.getConstraintViolations()
+        .forEach(violation -> messages.append(violation.getPropertyPath()).append(" ").append(violation.getMessage()));
     return new ResponseEntity<ApiError>(
-        new ApiError(HttpStatus.NOT_ACCEPTABLE, LocalDateTime.now(), messages.toString()),
-        HttpStatus.UNPROCESSABLE_ENTITY);
+        new ApiError(HttpStatus.NOT_ACCEPTABLE, LocalDateTime.now(), messages.toString()), HttpStatus.NOT_ACCEPTABLE);
   }
 }
