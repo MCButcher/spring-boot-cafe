@@ -10,5 +10,5 @@ import de.cegeka.springbootcafe.models.Menu;
 
 @Repository
 public interface MenuRepository extends CrudRepository<Menu, Long> {
-    public List<Menu> findByCategory(Category category);
+  public List<Menu> findByCategory(Category category);
 }

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ApiError {
-   private HttpStatus status;
-   private LocalDateTime timestamp;
-   private String message;
+  private HttpStatus status;
+  private LocalDateTime timestamp;
+  private String message;
 }

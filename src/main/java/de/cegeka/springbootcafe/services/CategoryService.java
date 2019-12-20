@@ -16,33 +16,33 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 @Slf4j
 public class CategoryService {
-   private CategoryRepository repository;
+  private CategoryRepository repository;
 
-   public Category insertOrUpdate(final Category category) {
-      return repository.save(category);
-   }
+  public Category insertOrUpdate(final Category category) {
+    return repository.save(category);
+  }
 
-   public Category delete(final Category category) {
-      repository.delete(category);
-      return category;
-   }
+  public Category delete(final Category category) {
+    repository.delete(category);
+    return category;
+  }
 
-   public Category getById(Long id) {
-      return repository.findById(id).orElse(new Category());
-   }
+  public Category getById(Long id) {
+    return repository.findById(id).orElse(new Category());
+  }
 
-   public List<Category> getAll() {
-      List<Category> list = new ArrayList<>();
-      repository.findAll().forEach(list::add);
-      return list;
-   }
+  public List<Category> getAll() {
+    List<Category> list = new ArrayList<>();
+    repository.findAll().forEach(list::add);
+    return list;
+  }
 
-   @PostConstruct
-   public void initDatabase() {
-      List<Category> categoryList = new ArrayList<>();
-      categoryList.add(new Category(null, "Drinks"));
-      categoryList.add(new Category(null, "Food"));
-      Iterable<Category> initList = repository.saveAll(categoryList);
-      log.info("Database initialized with Categories: {}", initList);
-   }
+  @PostConstruct
+  public void initDatabase() {
+    List<Category> categoryList = new ArrayList<>();
+    categoryList.add(new Category(null, "Drinks"));
+    categoryList.add(new Category(null, "Food"));
+    Iterable<Category> initList = repository.saveAll(categoryList);
+    log.info("Database initialized with Categories: {}", initList);
+  }
 }

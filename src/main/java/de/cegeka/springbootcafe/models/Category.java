@@ -19,11 +19,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "category")
 public class Category {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-   @NotNull
-   @Length(max = 50)
-   private String name;
+  @NotNull
+  @Length(max = 50)
+  private String name;
 }

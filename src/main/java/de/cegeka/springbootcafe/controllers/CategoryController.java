@@ -21,30 +21,30 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/category")
 @AllArgsConstructor
 public class CategoryController {
-   private CategoryService categoryService;
+  private CategoryService categoryService;
 
-   @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-   public Category add(@RequestBody Category category) {
-      return categoryService.insertOrUpdate(category);
-   }
+  @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+  public Category add(@RequestBody Category category) {
+    return categoryService.insertOrUpdate(category);
+  }
 
-   @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-   public Category update(@PathVariable("id") Long id, @RequestBody Category category) {
-      return categoryService.insertOrUpdate(category);
-   }
+  @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+  public Category update(@PathVariable("id") Long id, @RequestBody Category category) {
+    return categoryService.insertOrUpdate(category);
+  }
 
-   @DeleteMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-   public Category delete(@PathVariable("id") Long id, @RequestBody Category category) {
-      return categoryService.delete(category);
-   }
+  @DeleteMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+  public Category delete(@PathVariable("id") Long id, @RequestBody Category category) {
+    return categoryService.delete(category);
+  }
 
-   @GetMapping("/{id}")
-   public Category getById(@PathVariable("id") Long id) {
-      return categoryService.getById(id);
-   }
+  @GetMapping("/{id}")
+  public Category getById(@PathVariable("id") Long id) {
+    return categoryService.getById(id);
+  }
 
-   @GetMapping
-   public List<Category> getAll() {
-      return categoryService.getAll();
-   }
+  @GetMapping
+  public List<Category> getAll() {
+    return categoryService.getAll();
+  }
 }

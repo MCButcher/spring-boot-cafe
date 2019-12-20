@@ -21,18 +21,18 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "menu")
 public class Menu {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-   @Length(max = 100)
-   @NotNull
-   private String item;
+  @Length(max = 100)
+  @NotNull
+  private String item;
 
-   @Positive
-   private Double price;
+  @Positive
+  private Double price;
 
-   @OneToOne
-   @NotNull
-   private Category category;
+  @OneToOne
+  @NotNull
+  private Category category;
 }
