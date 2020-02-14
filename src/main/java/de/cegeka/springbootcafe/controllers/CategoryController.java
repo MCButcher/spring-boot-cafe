@@ -48,12 +48,14 @@ public class CategoryController {
 
   @GetMapping("/{id}")
   @ApiOperation(value = "Gets the category for the given id")
+  @ApiResponses(value = { @ApiResponse(code = 200, message = "Get category successfully"), })
   public Category getById(@PathVariable("id") Long id) {
     return categoryService.getById(id);
   }
 
   @GetMapping
   @ApiOperation(value = "Gets a list of all existing categories")
+  @ApiResponses(value = { @ApiResponse(code = 200, message = "Get all categories successfully"), })
   public List<Category> getAll() {
     return categoryService.getAll();
   }
